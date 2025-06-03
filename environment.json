@@ -1,0 +1,11 @@
+{
+    "id": "your-environment-id",
+    "name": "Development Environment",
+    "values": [
+      {
+        "key": "mockup_url",
+        "value": "https://829b3432-a3a0-4f45-aa5c-64c0a29f6a15.mock.pstmn.io",
+        "enabled": true
+      }
+    ]
+  }

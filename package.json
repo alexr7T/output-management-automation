@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.8",
+    "fs": "^0.0.1-security",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.25",
+    "path": "^0.12.7",
+    "pdfmake": "^0.2.18",
+    "puppeteer": "^24.3.0",
+    "xslt-processor": "^3.3.1"
+  }
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="invoice.xsl"?>
+
+<Invoice>
+    <Header>
+        <InvoiceNumber>85739103857392964</InvoiceNumber>
+        <Date>2025-02-20</Date>
+        <Seller>
+            <Name>Best Electronics Device</Name>
+            <Address>Bronx Tower Building Floor 1, NY</Address>
+            <Phone>0311 177 892</Phone>
+        </Seller>
+    </Header>
+
+    <Customer>
+        <Name>Micheal</Name>
+        <Address>Main 1 Saint Parkes New York</Address>
+        <Phone>073 123 4866</Phone>
+        <Email>michealr@gmail.com</Email>
+        <LoyaltyStartingYear>2018</LoyaltyStartingYear>
+        <LoyaltyPoints>210</LoyaltyPoints>
+    </Customer>
+
+    <Items>
+        <Item>
+            <Description>Apple MacBook</Description>
+            <Quantity>2</Quantity>
+            <Price>7000</Price>
+            <VAT>19.00</VAT>
+            <Discount>10</Discount>
+            <Total>14000</Total>
+        </Item>
+    </Items>
+
+    <InvoiceExtraDetails>
+        <IssueDate>2025-02-20</IssueDate>
+        <DueDate>2025-03-17</DueDate>
+        <IdStore>152398</IdStore>
+        <CodeMonth>01</CodeMonth>
+        <CodeYear>2025</CodeYear>
+        <TotalAmount>14000</TotalAmount>
+        <TotalVAT>2660</TotalVAT>
+        <TotalDiscount>1400</TotalDiscount>
+        <TotalToPay>12660</TotalToPay>
+    </InvoiceExtraDetails>
+</Invoice>

@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "0f980f96-d1fa-43d6-b1e0-f0003b9aa3ae",
+		"name": "XML Mock-Up Server Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29939569"
+	},
+	"item": [
+		{
+			"name": "XML API Mock - Setup",
+			"item": [
+				{
+					"name": "/upload-invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{mockup_url}}",
+							"host": [
+								"{{mockup_url}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/upload-invoice",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<?xml-stylesheet type=\"text/xsl\" href=\"invoice.xsl\"?>\r\n\r\n<Invoice>\r\n    <Header>\r\n        <InvoiceNumber>85739103857392964</InvoiceNumber>\r\n        <Date>2025-02-20</Date>\r\n    </Header>\r\n\r\n    <Customer>\r\n        <Name>Micheal</Name>\r\n        <Address>Main 1 Saint Parkes New York</Address>\r\n        <Phone>073 123 4866</Phone>\r\n    </Customer>\r\n\r\n    <Items>\r\n        <Item>\r\n            <Description>Apple MacBook</Description>\r\n            <Quantity>2</Quantity>\r\n            <Price>7000</Price>\r\n            <VAT>19.00</VAT>\r\n            <Discount>10</Discount>\r\n            <Total>14000</Total>\r\n        </Item>\r\n    </Items>\r\n\r\n    <InvoiceExtraDetails>\r\n        <IssueDate>2025-02-20</IssueDate>\r\n        <DueDate>2025-03-17</DueDate>\r\n        <IdStore>152398</IdStore>\r\n        <CodeMonth>01</CodeMonth>\r\n    </InvoiceExtraDetails>\r\n</Invoice> ",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/xml",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"invoice.xsl\"?>\n<Invoice>\n    <Header>\n        <InvoiceNumber>85739103857392964</InvoiceNumber>\n        <Date>2025-02-20</Date>\n    </Header>\n    <Customer>\n        <Name>Micheal</Name>\n        <Address>Main 1 Saint Parkes New York</Address>\n        <Phone>073 123 4866</Phone>\n    </Customer>\n    <Items>\n        <Item>\n            <Description>Apple MacBook</Description>\n            <Quantity>2</Quantity>\n            <Price>7000</Price>\n            <VAT>19.00</VAT>\n            <Discount>10</Discount>\n            <Total>14000</Total>\n        </Item>\n    </Items>\n    <InvoiceExtraDetails>\n        <IssueDate>2025-02-20</IssueDate>\n        <DueDate>2025-03-17</DueDate>\n        <IdStore>152398</IdStore>\n        <CodeMonth>01</CodeMonth>\n    </InvoiceExtraDetails>\n</Invoice>"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "XML Invoice API Tests",
+			"item": [
+				{
+					"name": "Create new invoice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Invoice>\r\n    <Header>\r\n        <InvoiceNumber>123456789</InvoiceNumber>\r\n        <Date>2025-03-04</Date>\r\n    </Header>\r\n    <Customer>\r\n        <Name>John Doe</Name>\r\n        <Address>Main Street, NY</Address>\r\n        <Phone>555-1234</Phone>\r\n    </Customer>\r\n    <Items>\r\n        <Item>\r\n            <Description>iPhone 15 Pro</Description>\r\n            <Quantity>1</Quantity>\r\n            <Price>1200</Price>\r\n            <VAT>19.00</VAT>\r\n            <Discount>5</Discount>\r\n            <Total>1140</Total>\r\n        </Item>\r\n    </Items>\r\n    <InvoiceExtraDetails>\r\n        <IssueDate>2025-03-04</IssueDate>\r\n        <DueDate>2025-04-04</DueDate>\r\n        <IdStore>98765</IdStore>\r\n        <CodeMonth>03</CodeMonth>\r\n    </InvoiceExtraDetails>\r\n</Invoice>\r\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mockup_url}}/upload-invoice",
+							"host": [
+								"{{mockup_url}}"
+							],
+							"path": [
+								"upload-invoice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create new invoice",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mockup_url}}/upload-invoice",
+									"host": [
+										"{{mockup_url}}"
+									],
+									"path": [
+										"upload-invoice"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/xml",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "<Response>\n    <Message>Invoice successfully created</Message>\n    <InvoiceNumber>123456789</InvoiceNumber>\n</Response>\n"
+						}
+					]
+				},
+				{
+					"name": "Get an invoice",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{mockup_url}}/invoices/{{invoice_id}}",
+							"host": [
+								"{{mockup_url}}"
+							],
+							"path": [
+								"invoices",
+								"{{invoice_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get existant invoice",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/xml",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mockup_url}}/invoices/123456789",
+									"host": [
+										"{{mockup_url}}"
+									],
+									"path": [
+										"invoices",
+										"123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/xml",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "<Invoice>\r\n    <Header>\r\n        <InvoiceNumber>123456789</InvoiceNumber>\r\n        <Date>2025-03-04</Date>\r\n    </Header>\r\n    <Customer>\r\n        <Name>John Doe</Name>\r\n        <Address>Main Street, NY</Address>\r\n        <Phone>555-1234</Phone>\r\n    </Customer>\r\n    <Items>\r\n        <Item>\r\n            <Description>iPhone 15 Pro</Description>\r\n            <Quantity>1</Quantity>\r\n            <Price>1200</Price>\r\n            <VAT>19.00</VAT>\r\n            <Discount>5</Discount>\r\n            <Total>1140</Total>\r\n        </Item>\r\n    </Items>\r\n    <InvoiceExtraDetails>\r\n        <IssueDate>2025-03-04</IssueDate>\r\n        <DueDate>2025-04-04</DueDate>\r\n        <IdStore>98765</IdStore>\r\n        <CodeMonth>03</CodeMonth>\r\n    </InvoiceExtraDetails>\r\n</Invoice>"
+						}
+					]
+				},
+				{
+					"name": "Update existing invoice",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Invoice>\r\n    <Header>\r\n        <InvoiceNumber>123456789</InvoiceNumber>\r\n        <Date>2025-03-04</Date>\r\n    </Header>\r\n    <Customer>\r\n        <Name>John Doe</Name>\r\n        <Address>Main Street, NY</Address>\r\n        <Phone>555-1234</Phone>\r\n    </Customer>\r\n    <Items>\r\n        <Item>\r\n            <Description>iPhone 15 Pro</Description>\r\n            <Quantity>1</Quantity>\r\n            <Price>1200</Price>\r\n            <VAT>19.00</VAT>\r\n            <Discount>10</Discount> <!-- Discount changed -->\r\n            <Total>1080</Total>\r\n        </Item>\r\n    </Items>\r\n    <InvoiceExtraDetails>\r\n        <IssueDate>2025-03-04</IssueDate>\r\n        <DueDate>2025-05-04</DueDate> <!-- New DueDate -->\r\n        <IdStore>98765</IdStore>\r\n        <CodeMonth>03</CodeMonth>\r\n    </InvoiceExtraDetails>\r\n</Invoice>\r\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mockup_url}}/invoices/{{invoice_id}}",
+							"host": [
+								"{{mockup_url}}"
+							],
+							"path": [
+								"invoices",
+								"{{invoice_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update existing invoice",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<Invoice>\r\n    <Header>\r\n        <InvoiceNumber>123456789</InvoiceNumber>\r\n        <Date>2025-03-04</Date>\r\n    </Header>\r\n    <Customer>\r\n        <Name>John Doe</Name>\r\n        <Address>Main Street, NY</Address>\r\n        <Phone>555-1234</Phone>\r\n    </Customer>\r\n    <Items>\r\n        <Item>\r\n            <Description>iPhone 15 Pro</Description>\r\n            <Quantity>1</Quantity>\r\n            <Price>1200</Price>\r\n            <VAT>19.00</VAT>\r\n            <Discount>10</Discount> <!-- Am schimbat Discount-ul -->\r\n            <Total>1080</Total>\r\n        </Item>\r\n    </Items>\r\n    <InvoiceExtraDetails>\r\n        <IssueDate>2025-03-04</IssueDate>\r\n        <DueDate>2025-05-04</DueDate> <!-- Am schimbat DueDate -->\r\n        <IdStore>98765</IdStore>\r\n        <CodeMonth>03</CodeMonth>\r\n    </InvoiceExtraDetails>\r\n</Invoice>\r\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mockup_url}}/invoices/123456789",
+									"host": [
+										"{{mockup_url}}"
+									],
+									"path": [
+										"invoices",
+										"123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "<Invoice>\r\n    <Header>\r\n        <InvoiceNumber>123456789</InvoiceNumber>\r\n        <Date>2025-03-04</Date>\r\n    </Header>\r\n    <Customer>\r\n        <Name>John Doe</Name>\r\n        <Address>Main Street, NY</Address>\r\n        <Phone>555-1234</Phone>\r\n    </Customer>\r\n    <Items>\r\n        <Item>\r\n            <Description>iPhone 15 Pro</Description>\r\n            <Quantity>1</Quantity>\r\n            <Price>1200</Price>\r\n            <VAT>19.00</VAT>\r\n            <Discount>10</Discount>\r\n            <Total>1080</Total>\r\n        </Item>\r\n    </Items>\r\n    <InvoiceExtraDetails>\r\n        <IssueDate>2025-03-04</IssueDate>\r\n        <DueDate>2025-05-04</DueDate> <!-- Verifică că DueDate a fost schimbat -->\r\n        <IdStore>98765</IdStore>\r\n        <CodeMonth>03</CodeMonth>\r\n    </InvoiceExtraDetails>\r\n</Invoice>"
+						}
+					]
+				},
+				{
+					"name": "Delete existing invoice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{mockup_url}}/invoices/{{invoice_id}}",
+							"host": [
+								"{{mockup_url}}"
+							],
+							"path": [
+								"invoices",
+								"{{invoice_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete existing invoice",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{mockup_url}}/invoices/123456789",
+									"host": [
+										"{{mockup_url}}"
+									],
+									"path": [
+										"invoices",
+										"123456789"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/xml",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "<Response>\n    <Message>Invoice 123456789 deleted successfully</Message>\n</Response>"
+						}
+					]
+				}
+			]
+		}
+	]
+}

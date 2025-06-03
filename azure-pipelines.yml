@@ -1,0 +1,33 @@
+variables:
+  MOCKUP_URL: 'https://829b3432-a3a0-4f45-aa5c-64c0a29f6a15.mock.pstmn.io'
+
+stages:
+- stage: DeployToDev
+  displayName: 'Deploy to Dev'
+  jobs:
+    - deployment: DevelopmentDeployment
+      displayName: 'Deploying to Development Environment'
+      environment: 01-Dev
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              # Add checkout steps to get files
+              - checkout: self
+              
+              # Check files in the current directory
+              - script: |
+                  echo "Listing all files in the current directory:"
+                  ls -l
+                displayName: 'List Files'
+              
+              # Check if environment.json exists
+              - script: |
+                  echo "Checking if environment.json exists"
+                  ls -l ./environment.json
+                displayName: 'Verify environment.json exists'
+              
+              # Run Postman tests using Newman
+              - script: |
+                  newman run "./XML Mock-Up Server Collection.postman_collection.json" --environment "./environment.json" --env-var "mockup_url=$(MOCKUP_URL)"
+                displayName: 'Run Postman Tests'
